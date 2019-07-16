@@ -26,19 +26,16 @@ def diffusion_coefficient(image, K=5):
 
 
 def diffuse(cv, ch, image, lambda_):
-    channels = []
     # Compute gradients from the image
     dv, dh = get_gradients(image)
-    for channel in range(int(image.shape[1])):
-        diffused_channel = image[:, channel, 1:-1, 1:-1] + lambda_ * (
-            cv[:, 1:, :] * dv[:, channel, 1:, :]
-            - cv[:, :-1, :] * dv[:, channel, :-1, :]
-            + ch[:, :, 1:] * dh[:, channel, :, 1:]
-            - ch[:, :, :-1] * dh[:, channel, :, :-1]
-        )
-        channels.append(diffused_channel)
+    diffused = image[:, :, 1:-1, 1:-1] + lambda_ * (
+        cv[:, 1:, :] * dv[:, :, 1:, :]
+        - cv[:, :-1, :] * dv[:, :, :-1, :]
+        + ch[:, :, 1:] * dh[:, :, :, 1:]
+        - ch[:, :, :-1] * dh[:, :, :, :-1]
+    )
     del (dv, dh)
-    return tf.pad(tf.stack(channels, axis=1), tf.constant([[0, 0], [0, 0], [1, 1], [1, 1]]))
+    return tf.pad(diffused, tf.constant([[0, 0], [0, 0], [1, 1], [1, 1]]))
 
 
 def anisotropic_diffusion(
