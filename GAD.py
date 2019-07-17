@@ -41,7 +41,7 @@ def diffuse(cv, ch, image, lambda_):
 def anisotropic_diffusion(
     input_image,
     first_guide_image,
-    second_guide_image,
+    second_guide_image=None,
     iterations=500,
     lambda_=0.24,
     K=5,
@@ -60,12 +60,16 @@ def anisotropic_diffusion(
         cv1, ch1 = diffusion_coefficient(first_guide_image, K=K)
         first_guide_image = diffuse(cv1, ch1, first_guide_image, lambda_)
 
-        cv2, ch2 = diffusion_coefficient(second_guide_image, K=K)
-        second_guide_image = diffuse(cv2, ch2, second_guide_image, lambda_)
+        # Perform diffusion on the second guide (if specified)
+        if second_guide_image is not None:
+            cv2, ch2 = diffusion_coefficient(second_guide_image, K=K)
+            second_guide_image = diffuse(cv2, ch2, second_guide_image, lambda_)
 
-        cv = tf.math.minimum(cv1, cv2)
-        ch = tf.math.minimum(ch1, ch2)
-        del (cv1, ch1, cv2, ch2)
+            cv = tf.math.minimum(cv1, cv2)
+            ch = tf.math.minimum(ch1, ch2)
+            del (cv1, ch1, cv2, ch2)
+        else:
+            cv, ch = cv1, ch1
 
         input_image = diffuse(cv, ch, input_image, lambda_)
 
