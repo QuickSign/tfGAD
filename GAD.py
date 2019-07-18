@@ -24,7 +24,8 @@ def diffusion_coefficient(gradient_v, gradient_h, K):
     return cv, ch
 
 
-def diffuse(image, lambda_, K, coeffs=None, return_coeffs=True):
+@tf.function
+def diffuse(image, lambda_, K, coeffs=None, return_coeffs=False):
     # Compute gradients from the image
     dv, dh = get_image_gradients(image)
     if coeffs is None:
@@ -39,13 +40,12 @@ def diffuse(image, lambda_, K, coeffs=None, return_coeffs=True):
     )
     image = tf.pad(diffused, tf.constant([[0, 0], [0, 0], [1, 1], [1, 1]]))
     if return_coeffs:
-        del(dv, dh, diffused)
         return image, cv, ch
     else:
-        del(dv, dh, cv, ch, diffused)
         return image
 
 
+@tf.function
 def anisotropic_diffusion(
     input_image,
     first_guide,
@@ -70,10 +70,8 @@ def anisotropic_diffusion(
         # Perform diffusion on the second guide (if specified)
         if second_guide is not None:
             second_guide, cv2, ch2 = diffuse(second_guide, lambda_, K, return_coeffs=True)
-
             cv = tf.math.minimum(cv1, cv2)
             ch = tf.math.minimum(ch1, ch2)
-            del(cv1, cv2, ch1, ch2)
         else:
             cv, ch = cv1, ch1
 
