@@ -5,6 +5,8 @@
 # "Guided anisotropic diffusion and iterative learning for weakly supervised change detection."
 # In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Workshops, 2019.
 
+from __future__ import print_function
+
 import tensorflow as tf
 
 
