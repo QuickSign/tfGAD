@@ -1,7 +1,7 @@
 # TensorFlow implementation of the Guided Anisotropic Diffusion algorithm
 # Original PyTorch implementation by Rodrigo Caye Daudt (https://rcdaudt.github.io)
 # Reference paper:
-# Caye Daudt, Rodrigo, Bertrand Le Saux, Alexandre Boulch, and Yann Gousseau.
+# Rodrigo Caye Daudt, Bertrand Le Saux, Alexandre Boulch, and Yann Gousseau.
 # "Guided anisotropic diffusion and iterative learning for weakly supervised change detection."
 # In Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition Workshops, 2019.
 
