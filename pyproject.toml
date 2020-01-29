@@ -6,7 +6,7 @@ authors = ["Nicolas Audebert <nicolas.audebert@quicksign.com>"]
 
 [tool.poetry.dependencies]
 python = "^2.7|>=3.5"
-tensorflow = "^1.14"
+tensorflow = "^1.15"
 
 [tool.poetry.dev-dependencies]
 
