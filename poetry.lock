@@ -1,125 +1,111 @@
 [[package]]
-category = "main"
-description = "Abseil Python Common Libraries, see https://github.com/abseil/abseil-py."
 name = "absl-py"
+version = "0.7.1"
+description = "Abseil Python Common Libraries, see https://github.com/abseil/abseil-py."
+category = "main"
 optional = false
 python-versions = "*"
-version = "0.7.1"
 
 [package.dependencies]
+enum34 = {version = "*", markers = "python_version < \"3.4\""}
 six = "*"
 
-[package.dependencies.enum34]
-python = "<3.4"
-version = "*"
-
 [[package]]
-category = "main"
-description = "Read/rewrite/write Python ASTs"
 name = "astor"
+version = "0.8.0"
+description = "Read/rewrite/write Python ASTs"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "0.8.0"
 
 [[package]]
-category = "main"
-description = "Backport of new features in Python's weakref module"
-marker = "python_version < \"3.4\""
 name = "backports.weakref"
-optional = false
-python-versions = "*"
 version = "1.0.post1"
+description = "Backport of new features in Python's weakref module"
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
-category = "main"
-description = "Python 3.4 Enum backported to 3.3, 3.2, 3.1, 2.7, 2.6, 2.5, and 2.4"
-marker = "python_version < \"3.4\""
 name = "enum34"
-optional = false
-python-versions = "*"
 version = "1.1.6"
+description = "Python 3.4 Enum backported to 3.3, 3.2, 3.1, 2.7, 2.6, 2.5, and 2.4"
+category = "main"
+optional = false
+python-versions = "*"
 
 [[package]]
-category = "main"
-description = "Python function signatures from PEP362 for Python 2.6, 2.7 and 3.2+"
-marker = "python_version < \"3\""
 name = "funcsigs"
-optional = false
-python-versions = "*"
 version = "1.0.2"
-
-[[package]]
+description = "Python function signatures from PEP362 for Python 2.6, 2.7 and 3.2+"
 category = "main"
-description = "Backport of the functools module from Python 3.2.3 for use on 2.7 and PyPy."
-marker = "python_version < \"3\""
-name = "functools32"
 optional = false
 python-versions = "*"
-version = "3.2.3-2"
 
 [[package]]
+name = "functools32"
+version = "3.2.3-2"
+description = "Backport of the functools module from Python 3.2.3 for use on 2.7 and PyPy."
 category = "main"
-description = "Backport of the concurrent.futures package from Python 3"
-marker = "python_version < \"3.2\""
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "futures"
+version = "3.3.0"
+description = "Backport of the concurrent.futures package from Python 3"
+category = "main"
 optional = false
 python-versions = ">=2.6, <3"
-version = "3.3.0"
 
 [[package]]
-category = "main"
-description = "Python AST that abstracts the underlying Python version"
 name = "gast"
+version = "0.2.2"
+description = "Python AST that abstracts the underlying Python version"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "0.2.2"
 
 [[package]]
-category = "main"
-description = "pasta is an AST-based Python refactoring library"
 name = "google-pasta"
+version = "0.1.7"
+description = "pasta is an AST-based Python refactoring library"
+category = "main"
 optional = false
 python-versions = "*"
-version = "0.1.7"
 
 [[package]]
-category = "main"
-description = "HTTP/2-based RPC framework"
 name = "grpcio"
+version = "1.22.0"
+description = "HTTP/2-based RPC framework"
+category = "main"
 optional = false
 python-versions = "*"
-version = "1.22.0"
 
 [package.dependencies]
+enum34 = {version = ">=1.0.4", markers = "python_version < \"3.4\""}
+futures = {version = ">=2.2.0", markers = "python_version < \"3.2\""}
 six = ">=1.5.2"
 
-[package.dependencies.enum34]
-python = "<3.4"
-version = ">=1.0.4"
-
-[package.dependencies.futures]
-python = "<3.2"
-version = ">=2.2.0"
-
 [[package]]
-category = "main"
-description = "Read and write HDF5 files from Python"
 name = "h5py"
+version = "2.9.0"
+description = "Read and write HDF5 files from Python"
+category = "main"
 optional = false
 python-versions = "*"
-version = "2.9.0"
 
 [package.dependencies]
 numpy = ">=1.7"
 six = "*"
 
 [[package]]
-category = "main"
-description = "Reference implementations of popular deep learning models"
 name = "keras-applications"
+version = "1.0.8"
+description = "Reference implementations of popular deep learning models"
+category = "main"
 optional = false
 python-versions = "*"
-version = "1.0.8"
 
 [package.dependencies]
 h5py = "*"
@@ -129,12 +115,12 @@ numpy = ">=1.9.1"
 tests = ["pytest", "pytest-pep8", "pytest-xdist", "pytest-cov"]
 
 [[package]]
-category = "main"
-description = "Easy data preprocessing and data augmentation for deep learning models"
 name = "keras-preprocessing"
+version = "1.1.0"
+description = "Easy data preprocessing and data augmentation for deep learning models"
+category = "main"
 optional = false
 python-versions = "*"
-version = "1.1.0"
 
 [package.dependencies]
 numpy = ">=1.9.1"
@@ -143,37 +129,30 @@ six = ">=1.9.0"
 [package.extras]
 image = ["scipy (>=0.14)", "Pillow (>=5.2.0)"]
 pep8 = ["flake8"]
-tests = ["pandas", "pillow", "tensorflow (1.7)", "keras", "pytest", "pytest-xdist", "pytest-cov"]
+tests = ["pandas", "pillow", "tensorflow (==1.7)", "keras", "pytest", "pytest-xdist", "pytest-cov"]
 
 [[package]]
-category = "main"
-description = "Python implementation of Markdown."
 name = "markdown"
+version = "3.1.1"
+description = "Python implementation of Markdown."
+category = "main"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*,!=3.4.*"
-version = "3.1.1"
-
-[package.dependencies]
-setuptools = ">=36"
 
 [package.extras]
 testing = ["coverage", "pyyaml"]
 
 [[package]]
-category = "main"
-description = "Rolling backport of unittest.mock for all Pythons"
-marker = "python_version < \"3\""
 name = "mock"
+version = "3.0.5"
+description = "Rolling backport of unittest.mock for all Pythons"
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "3.0.5"
 
 [package.dependencies]
+funcsigs = {version = ">=1", markers = "python_version < \"3.3\""}
 six = "*"
-
-[package.dependencies.funcsigs]
-python = "<3.3"
-version = ">=1"
 
 [package.extras]
 build = ["twine", "wheel", "blurb"]
@@ -181,109 +160,85 @@ docs = ["sphinx"]
 test = ["pytest", "pytest-cov"]
 
 [[package]]
-category = "main"
-description = "NumPy is the fundamental package for array computing with Python."
 name = "numpy"
+version = "1.16.4"
+description = "NumPy is the fundamental package for array computing with Python."
+category = "main"
 optional = false
 python-versions = ">=2.7,!=3.0.*,!=3.1.*,!=3.2.*,!=3.3.*"
-version = "1.16.4"
 
 [[package]]
-category = "main"
-description = "Optimizing numpys einsum function"
 name = "opt-einsum"
-optional = false
-python-versions = "*"
-version = "2.3.2"
-
-[package.dependencies]
-numpy = ">=1.7"
-
-[package.extras]
-docs = ["sphinx (1.2.3)", "sphinxcontrib-napoleon", "sphinx-rtd-theme", "numpydoc"]
-tests = ["pytest", "pytest-cov", "pytest-pep8"]
-
-[[package]]
-category = "main"
+version = "3.1.0"
 description = "Optimizing numpys einsum function"
-name = "opt-einsum"
+category = "main"
 optional = false
 python-versions = ">=3.5"
-version = "3.1.0"
 
 [package.dependencies]
 numpy = ">=1.7"
 
 [package.extras]
-docs = ["sphinx (1.2.3)", "sphinxcontrib-napoleon", "sphinx-rtd-theme", "numpydoc"]
+docs = ["sphinx (==1.2.3)", "sphinxcontrib-napoleon", "sphinx-rtd-theme", "numpydoc"]
 tests = ["pytest", "pytest-cov", "pytest-pep8"]
 
 [[package]]
-category = "main"
-description = "Protocol Buffers"
 name = "protobuf"
+version = "3.15.0"
+description = "Protocol Buffers"
+category = "main"
 optional = false
 python-versions = "*"
-version = "3.9.0"
 
 [package.dependencies]
-setuptools = "*"
 six = ">=1.9"
 
 [[package]]
-category = "main"
-description = "Python 2 and 3 compatibility utilities"
 name = "six"
+version = "1.12.0"
+description = "Python 2 and 3 compatibility utilities"
+category = "main"
 optional = false
 python-versions = ">=2.6, !=3.0.*, !=3.1.*"
-version = "1.12.0"
 
 [[package]]
-category = "main"
-description = "TensorBoard lets you watch Tensors Flow"
 name = "tensorboard"
+version = "1.15.0"
+description = "TensorBoard lets you watch Tensors Flow"
+category = "main"
 optional = false
 python-versions = ">= 2.7, != 3.0.*, != 3.1.*"
-version = "1.15.0"
 
 [package.dependencies]
 absl-py = ">=0.4"
+futures = {version = ">=3.1.1", markers = "python_version < \"3\""}
 grpcio = ">=1.6.3"
 markdown = ">=2.6.8"
 numpy = ">=1.12.0"
 protobuf = ">=3.6.0"
-setuptools = ">=41.0.0"
 six = ">=1.10.0"
 werkzeug = ">=0.11.15"
 
-[[package.dependencies.wheel]]
-python = "<3"
-version = "*"
-
-[[package.dependencies.wheel]]
-python = ">=3"
-version = ">=0.26"
-
-[package.dependencies.futures]
-python = "<3"
-version = ">=3.1.1"
-
 [[package]]
-category = "main"
-description = "TensorFlow is an open source machine learning framework for everyone."
 name = "tensorflow"
+version = "1.15.4"
+description = "TensorFlow is an open source machine learning framework for everyone."
+category = "main"
 optional = false
 python-versions = "*"
-version = "1.15.4"
 
 [package.dependencies]
 absl-py = ">=0.7.0"
 astor = ">=0.6.0"
+"backports.weakref" = {version = ">=1.0rc1", markers = "python_version < \"3.4\""}
+enum34 = {version = ">=1.1.6", markers = "python_version < \"3.4\""}
+functools32 = {version = ">=3.2.3", markers = "python_version < \"3\""}
 gast = "0.2.2"
 google-pasta = ">=0.1.6"
 grpcio = ">=1.8.6"
 keras-applications = ">=1.0.8"
 keras-preprocessing = ">=1.0.5"
+mock = {version = ">=2.0.0", markers = "python_version < \"3\""}
 numpy = ">=1.16.0,<1.19.0"
 opt-einsum = ">=2.3.2"
 protobuf = ">=3.6.1"
@@ -293,53 +248,29 @@ tensorflow-estimator = "1.15.1"
 termcolor = ">=1.1.0"
 wrapt = ">=1.11.1"
 
-[[package.dependencies.wheel]]
-python = "<3"
-version = "*"
-
-[[package.dependencies.wheel]]
-python = ">=3"
-version = ">=0.26"
-
-[package.dependencies."backports.weakref"]
-python = "<3.4"
-version = ">=1.0rc1"
-
-[package.dependencies.enum34]
-python = "<3.4"
-version = ">=1.1.6"
-
-[package.dependencies.functools32]
-python = "<3"
-version = ">=3.2.3"
-
-[package.dependencies.mock]
-python = "<3"
-version = ">=2.0.0"
-
 [[package]]
-category = "main"
-description = "TensorFlow Estimator."
 name = "tensorflow-estimator"
-optional = false
-python-versions = "*"
 version = "1.15.1"
-
-[[package]]
+description = "TensorFlow Estimator."
 category = "main"
-description = "ANSII Color formatting for output in terminal."
-name = "termcolor"
 optional = false
 python-versions = "*"
-version = "1.1.0"
 
 [[package]]
+name = "termcolor"
+version = "1.1.0"
+description = "ANSII Color formatting for output in terminal."
 category = "main"
-description = "The comprehensive WSGI web application library."
+optional = false
+python-versions = "*"
+
+[[package]]
 name = "werkzeug"
+version = "0.15.5"
+description = "The comprehensive WSGI web application library."
+category = "main"
 optional = false
 python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "0.15.5"
 
 [package.extras]
 dev = ["pytest", "coverage", "tox", "sphinx", "pallets-sphinx-themes", "sphinx-issues"]
@@ -347,29 +278,17 @@ termcolor = ["termcolor"]
 watchdog = ["watchdog"]
 
 [[package]]
-category = "main"
-description = "A built-package format for Python."
-marker = "python_version < \"3\" or python_version >= \"3\""
-name = "wheel"
-optional = false
-python-versions = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*, !=3.3.*"
-version = "0.33.4"
-
-[package.extras]
-test = ["pytest (>=3.0.0)", "pytest-cov"]
-
-[[package]]
-category = "main"
-description = "Module for decorators, wrappers and monkey patching."
 name = "wrapt"
+version = "1.11.2"
+description = "Module for decorators, wrappers and monkey patching."
+category = "main"
 optional = false
 python-versions = "*"
-version = "1.11.2"
 
 [metadata]
-content-hash = "3c9a8dd11cee0e7d28ede1d580e87ebb375b13d462c42c385ec00fee868689b7"
-lock-version = "1.0"
+lock-version = "1.1"
 python-versions = "^2.7|>=3.5"
+content-hash = "3c9a8dd11cee0e7d28ede1d580e87ebb375b13d462c42c385ec00fee868689b7"
 
 [metadata.files]
 absl-py = [
@@ -516,29 +435,29 @@ numpy = [
     {file = "numpy-1.16.4.zip", hash = "sha256:7242be12a58fec245ee9734e625964b97cf7e3f2f7d016603f9e56660ce479c7"},
 ]
 opt-einsum = [
-    {file = "opt_einsum-2.3.2.tar.gz", hash = "sha256:d3d464b4da7ef09e444c30e4003a27def37f85ff10ff2671e5f7d7813adac35b"},
     {file = "opt_einsum-3.1.0.tar.gz", hash = "sha256:edfada4b1d0b3b782ace8bc14e80618ff629abf53143e1e6bbf9bd00b11ece77"},
 ]
 protobuf = [
-    {file = "protobuf-3.9.0-cp27-cp27m-macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl", hash = "sha256:139b7eadcca0a861d60b523cb37d9475505e0dfb07972436b15407c2b968d87e"},
-    {file = "protobuf-3.9.0-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:aabb7c741d3416671c3e6fe7c52970a226e6a8274417a97d7d795f953fadef36"},
-    {file = "protobuf-3.9.0-cp34-cp34m-macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl", hash = "sha256:63c8c98ccb8c95f41c18fb829aeeab21c6249adee4ed75354125bdc44488f30e"},
-    {file = "protobuf-3.9.0-cp34-cp34m-manylinux1_x86_64.whl", hash = "sha256:83dc8a561b3b954fd7002c690bb83278b8d1742a1e28abba9aaef28b0c8b437d"},
-    {file = "protobuf-3.9.0-cp35-cp35m-macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl", hash = "sha256:586c4ca37a7146d4822c700059f150ac3445ce0aef6f3ea258640838bb892dc2"},
-    {file = "protobuf-3.9.0-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:05c36022fef3c7d3562ac22402965c0c2b9fe8421f459bb377323598996e407f"},
-    {file = "protobuf-3.9.0-cp35-cp35m-win32.whl", hash = "sha256:4df14cbe1e7134afcfdbb9f058949e31c466de27d9b2f7fb4da9e0b67231b538"},
-    {file = "protobuf-3.9.0-cp35-cp35m-win_amd64.whl", hash = "sha256:c5d5b8d4a9212338297fa1fa44589f69b470c0ba1d38168b432d577176b386a8"},
-    {file = "protobuf-3.9.0-cp36-cp36m-macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl", hash = "sha256:35cfcf97642ef62108e10a9431c77733ec7eaab8e32fe4653de20403429907cb"},
-    {file = "protobuf-3.9.0-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:2ad566b7b7cdd8717c7af1825e19f09e8fef2787b77fcb979588944657679604"},
-    {file = "protobuf-3.9.0-cp36-cp36m-win32.whl", hash = "sha256:387822859ecdd012fdc25ec879f7f487da6e1d5b1ae6115e227e6be208836f71"},
-    {file = "protobuf-3.9.0-cp36-cp36m-win_amd64.whl", hash = "sha256:913171ecc84c2726b86574e40549a0ea619d569657c5a5ff782a3be7d81401a5"},
-    {file = "protobuf-3.9.0-cp37-cp37m-macosx_10_9_intel.macosx_10_9_x86_64.macosx_10_10_intel.macosx_10_10_x86_64.whl", hash = "sha256:d86ee389c2c4fc3cebabb8ce83a8e97b6b3b5dc727b7419c1ccdc7b6e545a233"},
-    {file = "protobuf-3.9.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:72edcbacd0c73eef507d2ff1af99a6c27df18e66a3ff4351e401182e4de62b03"},
-    {file = "protobuf-3.9.0-cp37-cp37m-win32.whl", hash = "sha256:f2db8c754de788ab8be5e108e1e967c774c0942342b4f8aaaf14063889a6cfdc"},
-    {file = "protobuf-3.9.0-cp37-cp37m-win_amd64.whl", hash = "sha256:58b11e530e954d29ab3180c48dc558a409f705bf16739fd4e0d3e07924ad7add"},
-    {file = "protobuf-3.9.0-py2.7.egg", hash = "sha256:df82a0a3494fa2100c6f94aacaa8a618281dc3535f410f3decce941aea400a50"},
-    {file = "protobuf-3.9.0-py2.py3-none-any.whl", hash = "sha256:15f683006cb77fb849b1f561e509b03dd2b7dcc749086b8dd1831090d0ba4740"},
-    {file = "protobuf-3.9.0.tar.gz", hash = "sha256:b3452bbda12b1cbe2187d416779de07b2ab4c497d83a050e43c344778763721d"},
+    {file = "protobuf-3.15.0-cp27-cp27m-macosx_10_9_x86_64.whl", hash = "sha256:44d824adb48fe8baf81e628c2edaf9911912cd592a83621d2b877ccfde631d61"},
+    {file = "protobuf-3.15.0-cp27-cp27mu-manylinux1_x86_64.whl", hash = "sha256:b04449133e31b65924650d758efbc2397c2d0e5eb3c8cae7428ffc4fa9c3403d"},
+    {file = "protobuf-3.15.0-cp35-cp35m-macosx_10_9_intel.whl", hash = "sha256:ef69a10d45529a08367e70e736b3ce8e2af51360f23650ef1d4381ff9038467a"},
+    {file = "protobuf-3.15.0-cp35-cp35m-manylinux1_x86_64.whl", hash = "sha256:50f28efa66232a2fbbdd638dd61d9399ff66bcfde40ff305263b229692928081"},
+    {file = "protobuf-3.15.0-cp35-cp35m-win32.whl", hash = "sha256:25f0ee57684f7bc3f0511b73cf55c016a891d09079c357794759663fe3da9cd3"},
+    {file = "protobuf-3.15.0-cp35-cp35m-win_amd64.whl", hash = "sha256:94b34486986d7683e83f9d02a0112533263fc20fae54fff3f4fd69451e682ec7"},
+    {file = "protobuf-3.15.0-cp36-cp36m-macosx_10_9_x86_64.whl", hash = "sha256:11f192d491613f692b3ddc18f06c925785b3019c8e35d32c811421ca9ff7d50e"},
+    {file = "protobuf-3.15.0-cp36-cp36m-manylinux1_x86_64.whl", hash = "sha256:867635c1d541ce336a1a4df3379d1116f02eba6dc326d080c8ef02f34036c415"},
+    {file = "protobuf-3.15.0-cp36-cp36m-win32.whl", hash = "sha256:f6d10b1f86cebb8008a256f474948fc6204391e02a9c12935eebf036bbb07b65"},
+    {file = "protobuf-3.15.0-cp36-cp36m-win_amd64.whl", hash = "sha256:5c2ee13f5ea237a17bd81f52f972b7d334c0a43330d2a2a7b25b07f16eb146d8"},
+    {file = "protobuf-3.15.0-cp37-cp37m-macosx_10_9_x86_64.whl", hash = "sha256:2ccc0169b5145b3af676b6997be6fe62961edfc12bb524a7b9c46fb5d208a3d4"},
+    {file = "protobuf-3.15.0-cp37-cp37m-manylinux1_x86_64.whl", hash = "sha256:51e080fb1de5db54b0a6b1519ba8dda55e57404b0a4948e58f1342a3e15d89ec"},
+    {file = "protobuf-3.15.0-cp37-cp37m-win32.whl", hash = "sha256:d892e487bd544463ce1e656434591593f710169335ac3f02ce30ee866c2f2464"},
+    {file = "protobuf-3.15.0-cp37-cp37m-win_amd64.whl", hash = "sha256:40f031f79b0254aa62082ca87776c0959d85adf99f09cdef9d0b320bb772a609"},
+    {file = "protobuf-3.15.0-cp38-cp38-macosx_10_9_x86_64.whl", hash = "sha256:ae4bcd5a0ce3f77d0523c3e5ed0d04ed2af454f7bf7cef08cb7a8d0915ac80a9"},
+    {file = "protobuf-3.15.0-cp38-cp38-manylinux1_x86_64.whl", hash = "sha256:830a9c71df347b3fb3cd24ec985c4ed64f6e75983f543a1d8a3c96302dae915c"},
+    {file = "protobuf-3.15.0-cp39-cp39-macosx_10_9_x86_64.whl", hash = "sha256:fecf1b00ccc87bb8debca8b56458cc57c486d2d7afe22c7526728f79ffe232f4"},
+    {file = "protobuf-3.15.0-cp39-cp39-manylinux1_x86_64.whl", hash = "sha256:0e00b4e4a4800b389ae7f0058e1fc9d012444fdde926569d8cce55c84a01ef74"},
+    {file = "protobuf-3.15.0-py2.py3-none-any.whl", hash = "sha256:013a9ec4dccad9a6ed3aa1ad9e86a25a4e0d6d3bbe059b6f6502db20473c3e69"},
+    {file = "protobuf-3.15.0.tar.gz", hash = "sha256:e9f13fadb15b80e4a83ef5d9fa44e19243b1e2d96e84ee2228ca305180ca059e"},
 ]
 six = [
     {file = "six-1.12.0-py2.py3-none-any.whl", hash = "sha256:3350809f0555b11f552448330d0b52d5f24c91a322ea4a15ef22629740f3761c"},
@@ -568,10 +487,6 @@ termcolor = [
 werkzeug = [
     {file = "Werkzeug-0.15.5-py2.py3-none-any.whl", hash = "sha256:87ae4e5b5366da2347eb3116c0e6c681a0e939a33b2805e2c0cbd282664932c4"},
     {file = "Werkzeug-0.15.5.tar.gz", hash = "sha256:a13b74dd3c45f758d4ebdb224be8f1ab8ef58b3c0ffc1783a8c7d9f4f50227e6"},
-]
-wheel = [
-    {file = "wheel-0.33.4-py2.py3-none-any.whl", hash = "sha256:5e79117472686ac0c4aef5bad5172ea73a1c2d1646b808c35926bd26bdfb0c08"},
-    {file = "wheel-0.33.4.tar.gz", hash = "sha256:62fcfa03d45b5b722539ccbc07b190e4bfff4bb9e3a4d470dd9f6a0981002565"},
 ]
 wrapt = [
     {file = "wrapt-1.11.2.tar.gz", hash = "sha256:565a021fd19419476b9362b05eeaa094178de64f8361e44468f9e9d7843901e1"},
